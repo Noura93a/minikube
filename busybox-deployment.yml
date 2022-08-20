@@ -14,11 +14,11 @@ spec:
         type: frontend
     spec:
       containers:
-        - command:
-          - sleep
-          - "3600"
-      image: busybox
-      name: busybox-container
+        - name: busybox
+          image: busybox
+          command:
+            - sleep
+            - "3600"
   replicas: 3
   selector:
     matchLabels:
