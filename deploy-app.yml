@@ -1,0 +1,22 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app
+  labels:
+    app: nginx-deploy
+    kind: frontend
+spec:
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx-deploy
+        type: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image:  nginx:alpine
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend
