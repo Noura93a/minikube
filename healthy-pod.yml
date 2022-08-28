@@ -13,8 +13,7 @@ spec:
       readinessProbe:
         exec:
           command:
-          - cat
-          - /tmp/healthy
+          - ps aux
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
@@ -22,8 +21,7 @@ spec:
       livenessProbe:
         exec:
           command:
-          - cat
-          - /tmp/healthy
+          - ps aux
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
