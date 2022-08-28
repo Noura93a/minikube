@@ -8,12 +8,20 @@ spec:
   containers:
     - name: nginx-container
       image: nginx
+      ports: 
+      - containerPort: 80
       readinessProbe:
+        httpGet: 
+          path: / 
+          port: 80
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
         failureThreshould: 7
       livenessProbe:
+        httpGet: 
+          path: / 
+          port: 80
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
