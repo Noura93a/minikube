@@ -8,12 +8,15 @@ spec:
   containers:
     - name: nginx-container
       image: nginx
-      ports: 
-      - containerPort: 80
+      args:
+      - /bin/sh
+      - -c
+      - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
       readinessProbe:
         exec:
           command:
-          - ps aux
+          - cat
+          - /tmp/healthy
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
@@ -21,7 +24,8 @@ spec:
       livenessProbe:
         exec:
           command:
-          - ps aux
+          - cat
+          - /tmp/healthy
         initialDelaySeconds: 5
         periodSeconds: 3
         timeoutSeconds: 1
