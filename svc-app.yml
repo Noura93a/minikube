@@ -13,4 +13,4 @@ spec:
       nodePort: 31089 #This port is enable on node to send the traffic
       protocol: TCP
   selector:
-      app: nginx-svc
+      app: nginx-deploy
