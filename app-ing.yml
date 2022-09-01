@@ -16,4 +16,4 @@ spec:
           service:
             name: nginx-svc
             port:
-              number: 31089
+              number: 80
